@@ -17,7 +17,7 @@ Option Explicit
 '------------------------------
 
 
-Sub ShowColumns(ColumnABCList1D, TargetSheet As Worksheet, Optional ByVal MaxColABC$, Optional InputShow As Boolean = True)
+Public Sub ShowColumns(ColumnABCList1D, TargetSheet As Worksheet, Optional ByVal MaxColABC$, Optional InputShow As Boolean = True)
 'Žw’è—ñ‚Ì‚Ý•\Ž¦‚É‚·‚é
 '20210917
 
