@@ -5,19 +5,9 @@ Option Explicit
 'CheckArray1D      ・・・元場所：FukamiAddins3.ModArray
 'CheckArray1DStart1・・・元場所：FukamiAddins3.ModArray
 
-'------------------------------
 
 
-
-'------------------------------
-
-
-'配列の処理関係のプロシージャ
-
-'------------------------------
-
-
-Public Sub ShowColumns(ColumnABCList1D, TargetSheet As Worksheet, Optional ByVal MaxColABC$, Optional InputShow As Boolean = True)
+Public Sub ShowColumns(ColumnABCList1D, TargetSheet As Worksheet, Optional ByVal MaxColABC As String, Optional InputShow As Boolean = True)
 '指定列のみ表示にする
 '20210917
 
@@ -35,8 +25,9 @@ Public Sub ShowColumns(ColumnABCList1D, TargetSheet As Worksheet, Optional ByVal
         MaxColABC = Split(Cells(1, Columns.Count).Address(True, False), "$")(0) '最終列番号のアルファベット取得
     End If
     
-    Dim I&, J&, K&, M&, N&      '数え上げ用(Long型)
-    Dim ColumnName$             '表示対象の列名をまとめたもの
+    Dim I          As Long
+    Dim N          As Long
+    Dim ColumnName As String    '表示対象の列名をまとめたもの
     N = UBound(ColumnABCList1D) '対象の列の個数
     ColumnName = ""             '列名まとめの初期化
     For I = 1 To N
@@ -64,11 +55,11 @@ Public Sub ShowColumns(ColumnABCList1D, TargetSheet As Worksheet, Optional ByVal
     
 End Sub
 
-Private Sub CheckArray1D(InputArray, Optional HairetuName$ = "配列")
+Private Sub CheckArray1D(InputArray, Optional HairetuName As String = "配列")
 '入力配列が1次元配列かどうかチェックする
 '20210804
 
-    Dim Dummy%
+    Dim Dummy As Integer
     On Error Resume Next
     Dummy = UBound(InputArray, 2)
     On Error GoTo 0
@@ -80,7 +71,7 @@ Private Sub CheckArray1D(InputArray, Optional HairetuName$ = "配列")
 
 End Sub
 
-Private Sub CheckArray1DStart1(InputArray, Optional HairetuName$ = "配列")
+Private Sub CheckArray1DStart1(InputArray, Optional HairetuName As String = "配列")
 '入力1次元配列の開始番号が1かどうかチェックする
 '20210804
 
